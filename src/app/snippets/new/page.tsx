@@ -18,7 +18,6 @@ export default function SnippetCreatePage() {
         code,
       },
     });
-    console.log(`CLOG in "", value "snippet"`, snippet);
 
     // redirect the user back to the root route
     redirect('/');
