@@ -5,11 +5,27 @@ import { db } from '@/db';
 
 const editSnippet = async (id: number, code: string) => {
   await db.snippet.update({
-    where: { id },
-    data: { code },
+    where: {id},
+    data: {code},
   });
+}
 
-  redirect(`/snippets/${id}`);
+const createSnippet = async (
+  formState: {
+    message: string
+  },
+  formData: FormData,
+) => {
+  // await db.snippet.update({
+  //   where: { id },
+  //   data: { code },
+  // });
+  //
+  // redirect(`/snippets/${id}`);
+
+  return {
+    message: 'Title must be not empty',
+  }
 }
 
 const deleteSnippet = async (id: number) => {
@@ -21,6 +37,7 @@ const deleteSnippet = async (id: number) => {
 }
 
 export {
+  createSnippet,
   deleteSnippet,
   editSnippet,
 }
