@@ -45,3 +45,13 @@ export default async function SnippetShowPage(props: SnippetShowPageProps) {
     <pre className='p-3 border rounded bg-gray-200 border-gray-200'>{snippet.code}</pre>
   </div>
 }
+
+export async function generateStaticParams() {
+  const snippets = await db.snippet.findMany();
+
+  return snippets.map(snippet => {
+    return {
+      id: snippet.id.toString(),
+    }
+  })
+}

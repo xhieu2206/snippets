@@ -1,7 +1,7 @@
 'use client';
 
 import * as actions from '@/actions';
-import React, { useActionState, startTransition } from 'react';
+import React, { useActionState } from 'react';
 
 export default function SnippetCreatePage() {
   // const createSnippet = async (formData: FormData) => {
@@ -29,15 +29,15 @@ export default function SnippetCreatePage() {
     message: '',
   });
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const formData = new FormData(event.currentTarget);
-
-    startTransition(() => {
-      action(formData);
-    })
-  }
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //
+  //   const formData = new FormData(event.currentTarget);
+  //
+  //   startTransition(() => {
+  //     action(formData);
+  //   })
+  // }
 
   return <form action={action}>
     <h3 className='font-bold m-3'>Create a Snippet</h3>
